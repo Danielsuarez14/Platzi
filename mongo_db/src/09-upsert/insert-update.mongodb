@@ -1,0 +1,19 @@
+use("platzi_store")
+// first
+db.iot.insertOne({
+    sensor: "A001",
+    date: "2022-01-03",
+    reading: [4321]
+}
+)
+// Second time
+db.iot.updateOneOne({
+    sensor: "A001",
+    date: "2022-01-03"
+}, {
+    $push: {
+        reading: 2322
+    }
+
+}
+)

@@ -1,0 +1,5 @@
+use("platzi_store")
+// equal
+db.inventory.find({qty: { $eq: 20}})
+// no-equal
+db.inventory.find({qty: { $ne: 20} })

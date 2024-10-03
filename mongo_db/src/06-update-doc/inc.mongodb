@@ -1,0 +1,10 @@
+use("platzi_store")
+
+db.updateOne(
+    {_id:2},
+    {
+        $inc: {
+            price: '3000'
+        }
+    }
+)

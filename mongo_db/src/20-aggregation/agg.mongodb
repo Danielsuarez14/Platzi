@@ -1,0 +1,26 @@
+import { count } from "console"
+
+use("sample_airbnb")
+
+// normal
+db.listingsAndReviews.find(
+    {amenities: "Wifi"},
+    {
+        price: 1,
+        amenities: 1
+    }
+)
+
+//agregation framework
+db.listingsAndReviews.aggregate([
+    {$match: {
+      amenities: "Wifi"
+    }},
+    {$project: {
+      address: 1
+    }},
+    {$group:{
+        _id: "$address.country",
+        count:{$sum : 1}
+    }}
+])

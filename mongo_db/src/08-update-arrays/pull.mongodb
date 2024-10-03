@@ -1,0 +1,27 @@
+use("platzi_store")
+// one element
+db.inventory.updateOne({_id: 4},
+    {
+        $pull: {
+            tags: "headphone"
+        }
+    }
+)
+// one element in many documents
+db.inventory.updateMany({},
+    {
+        $pull: {
+            tags: "headphone"
+        }
+    }
+)
+// many elements
+db.inventory.updateMany({},
+    {
+        $pull: {
+            tags: {
+                $in: ["appliance","headphone"]
+            }
+        }
+    }
+)
